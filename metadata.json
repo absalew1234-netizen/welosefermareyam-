@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Wolo Sefer Church Website",
+  "description": "A bilingual (Amharic/English) website for the Wolo Sefer Kidist Mariam and Kidus Gebriel Ethiopian Orthodox Tewahedo Church featuring liturgy schedules, event calendars, and community information.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
