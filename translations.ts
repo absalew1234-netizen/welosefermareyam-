@@ -49,10 +49,39 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
     },
     gallery: {
       title: 'ፎቶ ጋለሪ',
-      churchExterior: 'የቤተክርስቲያኑ ውጫዊ እይታ',
-      churchInterior: 'የውስጥ መንፈሳዊ ስዕላት',
-      celebration: 'የበዓላት አከባበር',
-      icons: 'ቅዱሳን አዶዎች',
+      description: 'የቤተክርስቲያናችንን ታሪክ፣ ውበት እና የማህበረሰቡን እንቅስቃሴዎች በፎቶዎች ይመልከቱ። በእያንዳንዱ ምስል ላይ የቀስት ምልክቶችን በመጠቀም ተጨማሪ ፎቶዎችን ማየት ይችላሉ።',
+      quote: '"እግዚአብሔር በቅዱሳኑ ላይ ድንቅ ነው!"',
+      quoteSource: 'መዝሙረ ዳዊት 68፡35',
+      quoteTitle: 'መንፈሳዊ ውበት',
+      albums: [
+        {
+          title: 'የቤተክርስቲያኑ ውጫዊ እይታ',
+          images: [
+            { label: 'የቤተክርስቲያኑ ዲዛይን (3D)', desc: 'የወደፊት የቤተክርስቲያኑ ውጫዊ እይታ እና የህንፃ ጥበብ።' },
+            { label: 'ጎንዮሽ እይታ', desc: 'ከአካባቢው ጋር ያለው ተስማሚነት እና ውበት።' }
+          ]
+        },
+        {
+          title: 'ቅዱሳን አዶዎች',
+          images: [
+            { label: 'የብሥራቱ አዶ', desc: 'ለቅድስት ማርያም እና ለቅዱስ ገብርኤል የተሰየመ የክብር አዶ።' },
+            { label: 'የቅዱሳን ስዕላት', desc: 'በውስጥ የሚገኙ ጥንታዊ እና መንፈሳዊ ቅዱሳን ምስሎች።' }
+          ]
+        },
+        {
+          title: 'የበዓላት አከባበር',
+          images: [
+            { label: 'የማህበረሰቡ ሰልፍ', desc: 'ምዕመናን በታላላቅ በዓላት ወቅት የሚያደርጉት መንፈሳዊ ተሳትፎ።' },
+            { label: 'የጥምቀት በዓል', desc: 'በአደባባይ የሚከበር ደማቅ የጥምቀት ክብረ በዓል ምስል።' }
+          ]
+        },
+        {
+          title: 'ታሪካዊ ምስሎች',
+          images: [
+            { label: 'ታሪካዊው ህንፃ', desc: 'ለብዙ ዓመታት ያገለገለው የቀድሞው ባለቀለም ቤተክርስቲያን።' }
+          ]
+        }
+      ]
     },
     contact: {
       title: 'እውቂያ',
@@ -61,7 +90,7 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
       message: 'መልዕክት',
       send: 'ላክ',
       findUs: 'በካርታ ያግኙን',
-      phone: 'ስልክ፡ +251 11 XXX XXXX',
+      phone: 'ስልክ፡ +251 96 163 4343',
     },
   },
   en: {
@@ -111,10 +140,39 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
     },
     gallery: {
       title: 'Photo Gallery',
-      churchExterior: 'Church Exterior',
-      churchInterior: 'Church Interior',
-      celebration: 'Holiday Celebrations',
-      icons: 'Holy Icons',
+      description: 'Browse our parish history, beauty, and community through interactive carousels. Navigate through individual albums to see more photos from each category.',
+      quote: '"Awesome is God in his sanctuary; the God of Israel."',
+      quoteSource: 'Psalm 68:35',
+      quoteTitle: 'Spiritual Beauty',
+      albums: [
+        {
+          title: 'Church Exterior',
+          images: [
+            { label: 'Church Render (3D)', desc: 'A vision of the future exterior structure and architecture.' },
+            { label: 'Side Perspective', desc: 'Harmonious view of the church with its surroundings.' }
+          ]
+        },
+        {
+          title: 'Sacred Icons',
+          images: [
+            { label: 'Annunciation Icon', desc: 'Venerable Icon dedicated to St. Mary and St. Gabriel.' },
+            { label: 'Sanctuary Murals', desc: 'Holy and spiritual paintings within the sanctuary.' }
+          ]
+        },
+        {
+          title: 'Holiday Celebrations',
+          images: [
+            { label: 'Congregation', desc: 'Spiritual participation of the community during major feasts.' },
+            { label: 'Epiphany', desc: 'Vibrant outdoor celebration of the Epiphany (Timkat).' }
+          ]
+        },
+        {
+          title: 'Historical Images',
+          images: [
+            { label: 'Original Chapel', desc: 'The original colorful building that served the parish for many years.' }
+          ]
+        }
+      ]
     },
     contact: {
       title: 'Contact Us',
@@ -123,7 +181,7 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
       message: 'Message',
       send: 'Send Message',
       findUs: 'Find Us on Map',
-      phone: 'Phone: +251 11 XXX XXXX',
+      phone: 'Phone: +251 96 163 4343',
     },
   },
 };

@@ -1,6 +1,16 @@
 
 export type Language = 'am' | 'en';
 
+export interface GalleryImageTranslation {
+  label: string;
+  desc: string;
+}
+
+export interface GalleryAlbumTranslation {
+  title: string;
+  images: GalleryImageTranslation[];
+}
+
 export interface TranslationContent {
   nav: {
     home: string;
@@ -44,10 +54,11 @@ export interface TranslationContent {
   };
   gallery: {
     title: string;
-    churchExterior: string;
-    churchInterior: string;
-    celebration: string;
-    icons: string;
+    description: string;
+    quote: string;
+    quoteSource: string;
+    quoteTitle: string;
+    albums: GalleryAlbumTranslation[];
   };
   contact: {
     title: string;
