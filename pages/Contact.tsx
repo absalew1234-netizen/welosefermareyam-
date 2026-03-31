@@ -152,6 +152,13 @@ const Contact: React.FC<{ lang: Language }> = ({ lang }) => {
                   {t.contact.send}
                 </button>
               </form>
+
+              {/* Developer Credit */}
+              <div className="mt-12 pt-8 border-t border-white/10 text-center">
+                <p className="text-[10px] md:text-xs font-black text-blue-300 dark:text-gray-500 uppercase tracking-[0.3em] opacity-60">
+                  {t.contact.madeBy}
+                </p>
+              </div>
             </div>
           </div>
         </div>

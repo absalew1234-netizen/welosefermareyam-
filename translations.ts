@@ -9,6 +9,12 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
       services: 'አገልግሎቶች',
       gallery: 'ፎቶዎች',
       contact: 'እውቂያ',
+      developer: 'አልሚ',
+    },
+    auth: {
+      signUp: 'ተመዝገብ',
+      logIn: 'ግባ',
+      logOut: 'ውጣ',
     },
     hero: {
       title: 'ወሎ ሰፈር ቅድስት ማርያም እና ቅዱስ ገብርኤል ቤተክርስቲያን',
@@ -31,6 +37,8 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
       hours: 'አገልግሎት፡ ጸሎት፣ በዓላት፣ ማህበረሰብ እንቅስቃሴዎች (ብዙውን ጊዜ 24/7 ክፍት)',
       historyTitle: 'አጭር ታሪክ',
       historyText: 'ይህ ቅዱስ ስፍራ ለብዙ ዓመታት የማህበረሰቡ መንፈሳዊ ማዕከል ሆኖ ቆይቷል። ለቅድስት ማርያም እና ለቅዱስ ገብርኤል በጋራ የተሰየመ ታሪካዊ ቤተክርስቲያን ነው።',
+      appreciationTitle: 'የማህበረሰብ አድናቆት',
+      likedBy: 'በአብሳለው በላይነህ እና በሌሎችም የተወደደ።',
     },
     services: {
       title: 'አገልግሎቶች እና በዓላት',
@@ -49,7 +57,7 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
     },
     gallery: {
       title: 'ፎቶ ጋለሪ',
-      description: 'የቤተክርስቲያናችንን ታሪክ፣ ውበት እና የማህበረሰቡን እንቅስቃሴዎች በፎቶዎች ይመልከቱ። በእያንዳንዱ ምስል ላይ የቀስት ምልክቶችን በመጠቀም ተጨማሪ ፎቶዎችን ማየት ይችላሉ።',
+      description: 'የቤተክርስቲያናችንን ታሪክ፣ ውበት እና የማህበረሰቡን እንቅስቃሴዎች በፎቶዎች ይመልከቱ።',
       quote: '"እግዚአብሔር በቅዱሳኑ ላይ ድንቅ ነው!"',
       quoteSource: 'መዝሙረ ዳዊት 68፡35',
       quoteTitle: 'መንፈሳዊ ውበት',
@@ -91,6 +99,15 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
       send: 'ላክ',
       findUs: 'በካርታ ያግኙን',
       phone: 'ስልክ፡ +251 96 163 4343',
+      madeBy: 'በድረ-ገጽ አልሚ አብሳለው በላይነህ የተሰራ',
+    },
+    developer: {
+      title: 'ስለ ድረ-ገጽ አልሚው',
+      name: 'ስም፡ አብሳለው በላይነህ',
+      age: 'ዕድሜ፡ 17',
+      experience: 'የሥራ ልምድ፡ 3 ዓመት',
+      bio: 'አብሳለው በላይነህ በቴክኖሎጂ እና በድረ-ገጽ ልማት ላይ ከፍተኛ ፍላጎት ያለው ወጣት አልሚ ነው። ይህንን ድረ-ገጽ ለወሎ ሰፈር ቤተክርስቲያን በበጎ ፈቃደኝነት አዘጋጅቷል።',
+      role: 'ሙሉ-ስታክ ድረ-ገጽ አልሚ',
     },
   },
   en: {
@@ -100,6 +117,12 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
       services: 'Services',
       gallery: 'Gallery',
       contact: 'Contact',
+      developer: 'Developer',
+    },
+    auth: {
+      signUp: 'Sign Up',
+      logIn: 'Log In',
+      logOut: 'Log Out',
     },
     hero: {
       title: 'Wolo Sefer Kidist Mariam & Kidus Gebriel Church',
@@ -122,6 +145,8 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
       hours: 'Services: Prayers, Holidays, Community Activities (Open 24/7)',
       historyTitle: 'Short History',
       historyText: 'This holy place has served as a spiritual hub for the community for many years. It is a historic church uniquely dedicated to both Saint Mary and Saint Gabriel.',
+      appreciationTitle: 'Community Appreciation',
+      likedBy: 'Liked by Absalew Belayneh and many others.',
     },
     services: {
       title: 'Services & Events',
@@ -140,7 +165,7 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
     },
     gallery: {
       title: 'Photo Gallery',
-      description: 'Browse our parish history, beauty, and community through interactive carousels. Navigate through individual albums to see more photos from each category.',
+      description: 'Browse our parish history, beauty, and community through our interactive albums.',
       quote: '"Awesome is God in his sanctuary; the God of Israel."',
       quoteSource: 'Psalm 68:35',
       quoteTitle: 'Spiritual Beauty',
@@ -182,6 +207,15 @@ export const translations: Record<'am' | 'en', TranslationContent> = {
       send: 'Send Message',
       findUs: 'Find Us on Map',
       phone: 'Phone: +251 96 163 4343',
+      madeBy: 'MADE BY WEB DEVELOPER ABSALEW BELAYNEH',
+    },
+    developer: {
+      title: 'About the Developer',
+      name: 'Name: Absalew Belayneh',
+      age: 'Age: 17',
+      experience: 'Experience: 3 Years',
+      bio: 'Absalew Belayneh is a young and passionate developer with a deep interest in technology and web development. He built this website as a volunteer project for the Wolo Sefer Church.',
+      role: 'Full-Stack Web Developer',
     },
   },
 };

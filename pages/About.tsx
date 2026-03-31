@@ -2,7 +2,7 @@
 import React from 'react';
 import { translations } from '../translations';
 import { Language } from '../types';
-import { MapPin, Info, History, Crosshair, Clock, Camera } from 'lucide-react';
+import { MapPin, Info, History, Crosshair, Clock, Camera, Heart } from 'lucide-react';
 
 const About: React.FC<{ lang: Language }> = ({ lang }) => {
   const t = translations[lang];
@@ -69,6 +69,19 @@ const About: React.FC<{ lang: Language }> = ({ lang }) => {
                <div className="absolute -bottom-20 -right-20 opacity-10 transform rotate-12">
                   <Camera size={400} />
                </div>
+            </div>
+
+            {/* Community Appreciation */}
+            <div className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-red-50 dark:bg-red-900/30 rounded-2xl flex items-center justify-center text-red-600 dark:text-red-400">
+                  <Heart size={28} />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{t.about.appreciationTitle}</h3>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 text-lg font-medium italic">
+                "{t.about.likedBy}"
+              </p>
             </div>
           </div>
 

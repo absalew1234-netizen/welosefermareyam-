@@ -3,23 +3,28 @@ import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { translations } from './translations';
 import { Language } from './types';
-import { Menu, X, Globe, Phone, Mail, MapPin, Sun, Moon, MessageSquare } from 'lucide-react';
+import { Menu, X, Globe, Phone, Mail, MapPin, Sun, Moon, MessageSquare, LogIn, UserPlus, LogOut } from 'lucide-react';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import Developer from './pages/Developer';
 
 const Header = ({ 
   lang, 
   setLang, 
   isDarkMode, 
-  toggleDarkMode 
+  toggleDarkMode,
+  isLoggedIn,
+  setIsLoggedIn
 }: { 
   lang: Language, 
   setLang: (l: Language) => void,
   isDarkMode: boolean,
-  toggleDarkMode: () => void
+  toggleDarkMode: () => void,
+  isLoggedIn: boolean,
+  setIsLoggedIn: (v: boolean) => void
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -42,38 +47,39 @@ const Header = ({
     { name: t.nav.services, path: '/services' },
     { name: t.nav.gallery, path: '/gallery' },
     { name: t.nav.contact, path: '/contact' },
+    { name: t.nav.developer, path: '/developer' },
   ];
 
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-500 ${
       scrolled 
-      ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg py-2' 
+      ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-2' 
       : 'bg-white dark:bg-gray-900 py-4'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center gap-3 group">
-              <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl border-2 border-yellow-400 transform group-hover:rotate-12 transition-transform shadow-lg">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl border-2 border-yellow-400 transform group-hover:rotate-12 transition-transform shadow-lg">
                 W
               </div>
               <div className="flex flex-col">
-                <span className="font-black text-blue-900 dark:text-blue-400 tracking-tighter leading-none">
+                <span className="font-black text-blue-900 dark:text-blue-400 tracking-tighter leading-none text-sm md:text-base uppercase">
                   {lang === 'am' ? 'ወሎ ሰፈር' : 'WOLO SEFER'}
                 </span>
-                <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em]">
+                <span className="text-[9px] md:text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em]">
                   {lang === 'am' ? 'ቅድስት ማርያም' : 'ST. MARY'}
                 </span>
               </div>
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative px-4 py-2 text-sm font-black transition-all rounded-full ${
+                className={`relative px-4 py-2 text-[11px] font-black transition-all rounded-full uppercase tracking-widest ${
                   location.pathname === item.path 
                   ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30' 
                   : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
@@ -83,17 +89,45 @@ const Header = ({
               </Link>
             ))}
             
-            <div className="flex items-center gap-2 ml-4 pl-4 border-l border-gray-100 dark:border-gray-800">
+            <div className="flex items-center gap-3 ml-4 pl-4 border-l border-gray-100 dark:border-gray-800">
+              {/* Authentication Buttons */}
+              {!isLoggedIn ? (
+                <div className="flex items-center gap-2">
+                  <button 
+                    onClick={() => setIsLoggedIn(true)}
+                    className="flex items-center gap-2 px-3 py-2 text-[10px] font-black text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all uppercase tracking-tight"
+                  >
+                    <LogIn size={14} />
+                    {t.auth.logIn}
+                  </button>
+                  <button 
+                    onClick={() => setIsLoggedIn(true)}
+                    className="flex items-center gap-2 bg-yellow-400 text-blue-900 px-4 py-2 rounded-xl hover:bg-yellow-300 transition-all font-black text-[10px] shadow-sm uppercase tracking-tight"
+                  >
+                    <UserPlus size={14} />
+                    {t.auth.signUp}
+                  </button>
+                </div>
+              ) : (
+                <button 
+                  onClick={() => setIsLoggedIn(false)}
+                  className="flex items-center gap-2 px-3 py-2 text-[10px] font-black text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all uppercase tracking-tight"
+                >
+                  <LogOut size={14} />
+                  {t.auth.logOut}
+                </button>
+              )}
+
               <button
                 onClick={toggleDarkMode}
-                className="p-2.5 rounded-2xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:scale-110 active:scale-95 transition-all shadow-sm"
+                className="p-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:scale-110 active:scale-95 transition-all shadow-sm"
               >
-                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+                {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
               </button>
 
               <button
                 onClick={toggleLang}
-                className="flex items-center gap-2 bg-blue-900 text-white px-4 py-2 rounded-2xl hover:bg-blue-800 transition-all font-black text-xs shadow-md"
+                className="flex items-center gap-2 bg-blue-900 text-white px-3 py-2 rounded-xl hover:bg-blue-800 transition-all font-black text-[10px] shadow-md uppercase"
               >
                 <Globe size={14} />
                 {lang === 'am' ? 'ENGLISH' : 'አማርኛ'}
@@ -101,8 +135,8 @@ const Header = ({
             </div>
           </div>
 
-          <div className="md:hidden flex items-center gap-3">
-             <button onClick={toggleDarkMode} className="p-2 rounded-xl bg-gray-100 dark:bg-gray-800">
+          <div className="lg:hidden flex items-center gap-3">
+             <button onClick={toggleDarkMode} className="p-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
                 {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             <button
@@ -116,7 +150,7 @@ const Header = ({
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden absolute w-full bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 transition-all duration-300 ${isOpen ? 'top-full opacity-100 shadow-2xl' : '-top-[500px] opacity-0 pointer-events-none'}`}>
+      <div className={`lg:hidden absolute w-full bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 transition-all duration-300 ${isOpen ? 'top-full opacity-100 shadow-2xl' : '-top-[600px] opacity-0 pointer-events-none'}`}>
         <div className="px-4 pt-4 pb-8 space-y-2">
           {navItems.map((item) => (
             <Link
@@ -128,13 +162,23 @@ const Header = ({
               {item.name}
             </Link>
           ))}
-          <button
-            onClick={() => { toggleLang(); setIsOpen(false); }}
-            className="w-full text-left flex items-center gap-3 px-4 py-4 rounded-2xl text-lg font-black text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
-          >
-            <Globe size={20} />
-            {lang === 'am' ? 'English' : 'አማርኛ'}
-          </button>
+          <div className="pt-4 space-y-3 border-t border-gray-100 dark:border-gray-800">
+             {!isLoggedIn ? (
+               <div className="grid grid-cols-2 gap-2">
+                 <button onClick={() => { setIsLoggedIn(true); setIsOpen(false); }} className="flex items-center justify-center gap-2 py-4 rounded-2xl bg-gray-100 dark:bg-gray-800 font-black text-sm text-gray-700 dark:text-gray-200 uppercase"><LogIn size={18}/>{t.auth.logIn}</button>
+                 <button onClick={() => { setIsLoggedIn(true); setIsOpen(false); }} className="flex items-center justify-center gap-2 py-4 rounded-2xl bg-yellow-400 font-black text-sm text-blue-900 uppercase"><UserPlus size={18}/>{t.auth.signUp}</button>
+               </div>
+             ) : (
+               <button onClick={() => { setIsLoggedIn(false); setIsOpen(false); }} className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-red-600 font-black text-sm text-white uppercase"><LogOut size={18}/>{t.auth.logOut}</button>
+             )}
+            <button
+              onClick={() => { toggleLang(); setIsOpen(false); }}
+              className="w-full text-center flex items-center justify-center gap-3 py-4 rounded-2xl text-sm font-black text-white bg-blue-900 uppercase shadow-lg"
+            >
+              <Globe size={18} />
+              {lang === 'am' ? 'English' : 'አማርኛ'}
+            </button>
+          </div>
         </div>
       </div>
     </nav>
@@ -180,10 +224,10 @@ const Footer = ({ lang }: { lang: Language }) => {
 };
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState<Language>('am');
+  const [lang, setLang] = useState<Language>('en');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     const saved = localStorage.getItem('darkMode');
-    // Start with white mode by default if nothing saved
     return saved === 'true';
   });
 
@@ -200,12 +244,14 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
+      <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 font-sans">
         <Header 
           lang={lang} 
           setLang={setLang} 
           isDarkMode={isDarkMode} 
-          toggleDarkMode={toggleDarkMode} 
+          toggleDarkMode={toggleDarkMode}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
         />
         <main className="flex-grow pt-24">
           <Routes>
@@ -214,6 +260,7 @@ const App: React.FC = () => {
             <Route path="/services" element={<Services lang={lang} />} />
             <Route path="/gallery" element={<Gallery lang={lang} />} />
             <Route path="/contact" element={<Contact lang={lang} />} />
+            <Route path="/developer" element={<Developer lang={lang} />} />
           </Routes>
         </main>
         

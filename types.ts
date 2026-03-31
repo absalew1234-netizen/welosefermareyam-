@@ -18,6 +18,12 @@ export interface TranslationContent {
     services: string;
     gallery: string;
     contact: string;
+    developer: string;
+  };
+  auth: {
+    signUp: string;
+    logIn: string;
+    logOut: string;
   };
   hero: {
     title: string;
@@ -40,6 +46,8 @@ export interface TranslationContent {
     hours: string;
     historyTitle: string;
     historyText: string;
+    appreciationTitle: string;
+    likedBy: string;
   };
   services: {
     title: string;
@@ -68,5 +76,14 @@ export interface TranslationContent {
     send: string;
     findUs: string;
     phone: string;
+    madeBy: string;
+  };
+  developer: {
+    title: string;
+    name: string;
+    age: string;
+    experience: string;
+    bio: string;
+    role: string;
   };
 }
